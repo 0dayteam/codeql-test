@@ -6,6 +6,6 @@ from django.template import  Context,Template
 # Create your views here.
 
 def ssti(request):
-    template = Template("hello {name}".format(name=request.GET.get('name')))
+    template = Template("hello" + request.GET.get('name')))
     context = Context()
     return HttpResponse(template.render(context))
